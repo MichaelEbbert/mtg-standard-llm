@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "version": "0.1",
+    "description": "Evaluation test set for MTG strategy reasoning. Never use for training.",
+    "categories": ["resources", "card_advantage", "tempo", "archetypes", "role_assignment", "combat", "terminology"]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "category": "resources",
+      "question": "A player has 18 life and can pay 3 life to draw a card. Their opponent has no creatures and is playing a slow control deck. Should they pay the life? Why?",
+      "reference_answer": "Yes, they should pay the life. Life is a resource, not just a score. Against a slow control deck with no board pressure, the 3 life is unlikely to matter, but the extra card provides options and advances their game plan. The only life point that matters is the last one.",
+      "key_concepts": ["life as resource", "context-dependent valuation", "card advantage"]
+    },
+    {
+      "id": 2,
+      "category": "resources",
+      "question": "What is mana screw and why is it problematic?",
+      "reference_answer": "Mana screw is when a player draws too few lands, leaving them unable to cast spells in their hand. It's problematic because it completely cripples your ability to execute any game plan - you have cards but no mana to cast them.",
+      "key_concepts": ["mana screw definition", "resource denial"]
+    },
+    {
+      "id": 3,
+      "category": "resources",
+      "question": "A player has 7 lands in play but only 1 card in hand. What problem are they experiencing and what deck construction choice helps prevent it?",
+      "reference_answer": "They are experiencing mana flood - too many lands and not enough spells. Mana sinks (cards with activated abilities that cost mana, or X-cost spells) help prevent this by giving you something productive to do with excess mana.",
+      "key_concepts": ["mana flood", "mana sinks"]
+    },
+    {
+      "id": 4,
+      "category": "card_advantage",
+      "question": "Player A casts a board sweeper that destroys all creatures. Player A had 1 creature, Player B had 4 creatures. Who gained card advantage and why?",
+      "reference_answer": "Player A gained card advantage. They spent 1 card (the sweeper) and lost 1 creature (net: 2 cards). Player B lost 4 creatures (4 cards). Player A traded 2 cards for 4 cards - a two-for-one in their favor.",
+      "key_concepts": ["card advantage math", "board sweepers", "two-for-one"]
+    },
+    {
+      "id": 5,
+      "category": "card_advantage",
+      "question": "What is virtual card advantage? Give an example.",
+      "reference_answer": "Virtual card advantage is when you make opponent's cards irrelevant without destroying them. Example: Playing a creature with protection from red against a mono-red deck makes their creature-targeting burn spells dead cards - they still have the cards but can't use them effectively.",
+      "key_concepts": ["virtual card advantage", "dead cards"]
+    },
+    {
+      "id": 6,
+      "category": "tempo",
+      "question": "Player A spends 2 mana to bounce Player B's 5-mana creature back to their hand. Did Player A gain or lose card advantage? Did they gain or lose tempo?",
+      "reference_answer": "Player A lost card advantage (spent a card but didn't remove the threat permanently - it's still in opponent's hand). However, Player A gained tempo - they spent 2 mana to make the opponent re-spend 5 mana. That's a 3-mana tempo swing in Player A's favor.",
+      "key_concepts": ["tempo vs card advantage", "bounce", "mana efficiency"]
+    },
+    {
+      "id": 7,
+      "category": "tempo",
+      "question": "What does it mean for a control deck to 'stabilize'?",
+      "reference_answer": "Stabilizing means the control player has stopped the bleeding - they've answered the immediate threats, their life total is no longer dropping, and they can begin executing their own game plan. After stabilizing, control shifts from surviving to winning.",
+      "key_concepts": ["stabilize definition", "control strategy"]
+    },
+    {
+      "id": 8,
+      "category": "archetypes",
+      "question": "What is the primary difference between how aggro and control decks approach the tempo vs card advantage tradeoff?",
+      "reference_answer": "Aggro prioritizes tempo over card advantage - deploy threats quickly, win before opponent stabilizes, even if it means running out of cards. Control prioritizes card advantage over tempo - survive the early game, accumulate resources, then win through superior options.",
+      "key_concepts": ["aggro vs control", "tempo vs card advantage tradeoff"]
+    },
+    {
+      "id": 9,
+      "category": "archetypes",
+      "question": "A combo deck runs tutors. What are tutors and why does a combo deck want them?",
+      "reference_answer": "Tutors are cards that search your library for specific cards (named after Demonic Tutor). Combo decks want them because combo requires assembling specific card combinations - tutors increase consistency by letting you find exactly the pieces you need rather than hoping to draw them naturally.",
+      "key_concepts": ["tutors", "combo consistency"]
+    },
+    {
+      "id": 10,
+      "category": "role_assignment",
+      "question": "Two midrange decks face each other. One has more removal spells, the other has more aggressive creatures. Which should be the beatdown and which should be control?",
+      "reference_answer": "The deck with more aggressive creatures should be the beatdown - it has more damage capacity. The deck with more removal should play the control role - it has more answers. Misassigning these roles (aggressive deck playing defensive, removal-heavy deck racing) leads to losses.",
+      "key_concepts": ["role assignment", "beatdown vs control", "damage capacity vs removal"]
+    },
+    {
+      "id": 11,
+      "category": "role_assignment",
+      "question": "What is 'inevitability' and how does it affect role assignment?",
+      "reference_answer": "Inevitability is who wins if the game goes very long with no decisive action. The player with inevitability has an endgame advantage. The player WITHOUT inevitability must be the beatdown - they need to win before the opponent's advantage takes over.",
+      "key_concepts": ["inevitability", "role assignment", "endgame advantage"]
+    },
+    {
+      "id": 12,
+      "category": "combat",
+      "question": "Player A has a 3/3 creature. Player B has a 3/3 creature. It's Player A's turn. Should Player A attack? Why?",
+      "reference_answer": "Usually yes, Player A should attack. If Player B doesn't block, Player A deals 3 free damage. If Player B blocks, the creatures trade - but the trade happens on Player A's terms. Waiting gives the opponent time for things to go wrong for you. Be willing to trade creatures.",
+      "key_concepts": ["trading", "attacking initiative", "combat heuristics"]
+    },
+    {
+      "id": 13,
+      "category": "combat",
+      "question": "Player A is at 17 life facing a 5/5 attacker. They have a 2/2 creature. Should they chump block?",
+      "reference_answer": "No, they should not chump block. Going from 17 to 12 life is not dangerous - they're still at a healthy total. Throwing away a creature to prevent non-lethal damage wastes a resource. Chump blocking is a last resort for when you'd die otherwise.",
+      "key_concepts": ["chump blocking", "life total management", "resource preservation"]
+    },
+    {
+      "id": 14,
+      "category": "combat",
+      "question": "When should a player start chump blocking?",
+      "reference_answer": "Chump block when the damage would kill you or put you in immediate lethal range. The key insight: once you identify you'll have to chump eventually, do it while you can - before opponent removes your option with removal spells. Don't chump at high life; must chump near lethal.",
+      "key_concepts": ["chump blocking timing", "life threshold awareness"]
+    },
+    {
+      "id": 15,
+      "category": "terminology",
+      "question": "What does 'reach' mean in the strategic sense (not the keyword)?",
+      "reference_answer": "Strategic 'reach' means the ability to deal damage directly to the opponent, bypassing blockers. When someone says 'the opponent has reach,' they mean the opponent can finish you with burn spells or direct damage even if you stabilize the board.",
+      "key_concepts": ["reach (strategic)", "direct damage", "finishing potential"]
+    },
+    {
+      "id": 16,
+      "category": "terminology",
+      "question": "What is 'permission' in Magic strategy?",
+      "reference_answer": "Permission is a control strategy built around counterspells. You give the opponent 'permission' to resolve their spells (by not countering) or deny permission (by countering). Permission decks control what enters the battlefield rather than removing threats after they resolve.",
+      "key_concepts": ["permission", "counterspell strategy", "control variant"]
+    },
+    {
+      "id": 17,
+      "category": "terminology",
+      "question": "What does 'running out of gas' mean?",
+      "reference_answer": "Running out of gas means you've depleted your hand of useful cards and are now in topdeck mode - your entire game depends on whatever you draw next with no backup options. 'Gas' refers to threats, action cards, or resources that advance your game plan.",
+      "key_concepts": ["gas", "topdeck mode", "resource depletion"]
+    },
+    {
+      "id": 18,
+      "category": "resources",
+      "question": "In what situation might having fewer cards in hand actually be advantageous?",
+      "reference_answer": "When facing effects that punish card count - like damage per card in hand or forced discard costs. This is value inversion: normally more cards equals more options (good), but certain effects flip this, making a smaller hand preferable.",
+      "key_concepts": ["value inversion", "context-dependent valuation"]
+    },
+    {
+      "id": 19,
+      "category": "archetypes",
+      "question": "What is a linear strategy and what is its main weakness?",
+      "reference_answer": "A linear strategy focuses entirely on one goal, with every card contributing to that plan. It's single-minded and not interested in interacting with the opponent. Main weakness: vulnerability to targeted disruption and sideboard hate. One hate card can invalidate the entire game plan because linear decks lack flexibility.",
+      "key_concepts": ["linear strategy", "sideboard hate", "lack of flexibility"]
+    },
+    {
+      "id": 20,
+      "category": "archetypes",
+      "question": "What is 'critical mass' in the context of synergy-based decks?",
+      "reference_answer": "Critical mass is the threshold at which a synergy-based strategy becomes powerful. A deck with few synergy pieces has weak payoffs, but once you have enough pieces, the synergies become devastating. Linear strategies need to reach critical mass to function - below it, individual cards are weak.",
+      "key_concepts": ["critical mass", "synergy threshold", "linear strategies"]
+    }
+  ]
+}

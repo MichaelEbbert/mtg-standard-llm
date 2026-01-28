@@ -1,0 +1,54 @@
+# Model files (too large for git)
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+models/
+
+# Copyrighted source materials
+data/raw/rules/
+data/raw/strategy/sources/
+
+# Card databases (check license terms)
+data/raw/cards/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.key
+*.pem
+credentials.json
+secrets.json
+
+# Generated/cached
+*.cache
+*.log
+output/
+tmp/

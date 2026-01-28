@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:articles.starcitygames.com)",
+      "Bash(git init:*)",
+      "Bash(git -C \"D:\\\\mtg-std-llm\" status)",
+      "Bash(git -C \"D:\\\\mtg-std-llm\" add -A)"
+    ]
+  }
+}
