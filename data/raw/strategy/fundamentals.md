@@ -186,6 +186,16 @@ The "Fundamental Turn" is the turn when a deck's strategy becomes dominant - whe
 
 **Strategic implication**: Your deck's fundamental turn must be competitive with the format's average. If most decks win by turn 4-5, a deck that can't interact until turn 6 is poorly positioned.
 
+### 4.4 Mana Economy in Trades
+
+When your cheap card deals with their expensive card, you gain tempo advantage equal to the mana difference. A 2-mana Murder killing a 5-mana creature nets you 3 mana of tempo - you spent less and can redeploy faster than they can.
+
+**Trading up**: A creature that kills something more expensive than itself creates mana advantage. A 1-mana 1/1 deathtouch trading with a 5-mana 5/5 is card-neutral (one-for-one) but a massive tempo swing - you're up 4 mana worth of resources.
+
+**Trading down**: Conversely, using expensive removal on cheap threats loses tempo. Spending a 4-mana sweeper to kill one 2-mana creature is inefficient - you'd rather answer cheap threats cheaply and save expensive answers for expensive problems.
+
+**Forced inefficiency**: Some threats demand answers regardless of mana efficiency. A 2-mana creature that must be killed or you lose the game is worth spending 4 mana on. Recognize when efficiency matters and when survival matters more.
+
 ---
 
 ## 5. Archetypes

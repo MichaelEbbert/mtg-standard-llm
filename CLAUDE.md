@@ -109,6 +109,16 @@ This project doubles as a learning experience. Explain LLM concepts, fine-tuning
 - Meta deck names and compositions
 - Deck archetype mappings (e.g., "UW Tokens is a control deck")
 
+**Matchup Data** (deck vs deck specifics)
+- Strengths and weaknesses are relative to the opposing deck, not absolute
+- For each relevant matchup pair, store:
+  - Which deck is beatdown, which is control
+  - Key cards that matter in this specific matchup
+  - Sideboard plans for both sides
+  - What each deck is trying to accomplish
+- Example: "Mono-Red vs UW Control" has different key cards and plans than "Mono-Red vs Golgari Midrange"
+- ~50-70 matchup pairs covers a typical meta (8-12 tier decks)
+
 **Synergy Examples** (specific combos that change with sets/meta)
 - Current strong synergy pairs (e.g., "Sacrifice + Braids")
 - Set-specific synergy packages
@@ -141,6 +151,12 @@ Fine-tuning reserved for improving *how* the model reasons, not *what* it knows 
 1. Extract all unique abilities/keywords from the card data
 2. Compare against abilities covered in our fine-tuning strategy sources
 3. Identify gaps (new mechanics like Warp, Exhaust, bending abilities, etc.)
-4. Add strategy content for each missing ability to `data/raw/strategy/fundamentals.md`
+4. Add strategy content for each missing ability to `data/raw/keywords/keywords.md`
 
 This ensures the model understands how to *reason* about every ability type it will encounter via RAG retrieval.
+
+### Keyword Strategy Content (IN PROGRESS)
+- Created `data/raw/keywords/keywords.md` with strategic explanations
+- Covers: 18 evergreen, 4 bending abilities, 26 set-specific, 8 deciduous keywords
+- Remaining: Lorwyn Eclipsed, TMNT, Marvel mechanics (need identification)
+- Status: Rough drafts complete, editing pass needed

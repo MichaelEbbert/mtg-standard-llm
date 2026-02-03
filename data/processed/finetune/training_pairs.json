@@ -1,0 +1,495 @@
+{
+  "metadata": {
+    "version": "0.1",
+    "description": "Fine-tuning training data for MTG strategy reasoning",
+    "source_files": ["fundamentals.md", "keywords.md"],
+    "format": "instruction"
+  },
+  "training_data": [
+    {
+      "instruction": "What are the four core resources in Magic: The Gathering?",
+      "input": "",
+      "output": "The four core resources are: Cards (hand size - more cards means more options), Mana (enables action - more mana means more possible plays per turn), Life Total (a resource to spend, not just a score to protect), and Board State (permanents - creatures, artifacts, enchantments that represent accumulated investment)."
+    },
+    {
+      "instruction": "What is mana screw in Magic: The Gathering?",
+      "input": "",
+      "output": "Mana screw is when a player draws too few lands, leaving them unable to cast spells in their hand. It cripples your ability to execute any game plan because you have cards but no mana to cast them."
+    },
+    {
+      "instruction": "What is mana flood and how can you mitigate it?",
+      "input": "",
+      "output": "Mana flood is drawing too many lands, leaving you with mana but nothing to spend it on. Mana sinks help mitigate this - cards with activated abilities that cost mana, or X-cost spells that let you spend excess mana productively."
+    },
+    {
+      "instruction": "Why is life considered a resource rather than just a score?",
+      "input": "",
+      "output": "The only life point that truly matters is your last one. Going from 20 to 17 rarely affects the game, but going from 3 to 0 ends it. This means paying life for cards, mana, or other effects is often correct - you're trading a weaker resource (life) for a stronger one (cards or board presence)."
+    },
+    {
+      "instruction": "A player has 18 life and can pay 3 life to draw a card. Their opponent has no creatures and is playing a slow control deck. Should they pay the life?",
+      "input": "",
+      "output": "Yes, they should pay the life. Against a slow control deck with no board pressure, the 3 life is unlikely to matter, but the extra card provides options and advances their game plan. Life is a resource to spend when the trade is favorable."
+    },
+    {
+      "instruction": "What is a damage race in Magic?",
+      "input": "",
+      "output": "A damage race is a game state where both players are trying to kill each other as fast as possible, ignoring defense. In a race, every point of life matters because whoever deals 20 damage first wins. This is different from normal play where life is a spendable resource."
+    },
+    {
+      "instruction": "What does 'reach' mean in strategic terms (not the keyword)?",
+      "input": "",
+      "output": "Strategic reach means the ability to deal damage directly to the opponent, bypassing blockers. When someone says 'the opponent has reach,' they mean the opponent can finish you with burn spells or direct damage even if you stabilize the board."
+    },
+    {
+      "instruction": "When is it dangerous to pay life for effects?",
+      "input": "",
+      "output": "Paying life becomes dangerous when: you're in a damage race (every point matters), your opponent has 'reach' through burn spells or direct damage, or you're approaching dangerous life thresholds. Against burn decks, staying above 3 life avoids Lightning Bolt kills. Against aggro with haste creatures, staying above 5-6 provides buffer."
+    },
+    {
+      "instruction": "What is card advantage?",
+      "input": "",
+      "output": "Card advantage is the concept that whoever has more resources - cards in hand plus meaningful permanents in play - has the advantage. Gaining card advantage means using fewer of your cards to deal with more of your opponent's cards."
+    },
+    {
+      "instruction": "What is a one-for-one trade?",
+      "input": "",
+      "output": "A one-for-one is trading one card for one card. Neither player gains card advantage. Example: using Murder to kill an opponent's creature - you spent one card to remove one card."
+    },
+    {
+      "instruction": "What is a two-for-one?",
+      "input": "",
+      "output": "A two-for-one is using one card to deal with two of your opponent's cards, gaining card advantage. Examples: A board sweeper killing three creatures costs you one card but costs opponent three cards. Divination draws two cards for one card spent."
+    },
+    {
+      "instruction": "Player A casts a board sweeper that destroys all creatures. Player A had 1 creature, Player B had 4 creatures. Who gained card advantage and why?",
+      "input": "",
+      "output": "Player A gained card advantage. They spent 1 card (the sweeper) and lost 1 creature, netting 2 cards total. Player B lost 4 creatures. Player A traded 2 cards for 4 cards - a two-for-one in their favor."
+    },
+    {
+      "instruction": "What is virtual card advantage?",
+      "input": "",
+      "output": "Virtual card advantage occurs when you make your opponent's cards irrelevant without destroying them. Example: Playing a creature with protection from red against a mono-red deck makes their creature-targeting burn spells dead cards - they still have the cards but can't use them effectively."
+    },
+    {
+      "instruction": "What are dead cards?",
+      "input": "",
+      "output": "Dead cards are cards in hand that cannot be usefully cast in the current game state. A creature removal spell against a creatureless deck is a dead card - it occupies space in your hand but provides no value."
+    },
+    {
+      "instruction": "What is tempo in Magic: The Gathering?",
+      "input": "",
+      "output": "Tempo represents speed and mana efficiency - accomplishing your strategy faster than your opponent. Tempo advantage comes from deploying threats efficiently, removing opposing threats while developing your own, and making your opponent waste mana."
+    },
+    {
+      "instruction": "How do tempo and card advantage often conflict?",
+      "input": "",
+      "output": "Tempo-focused play deploys threats quickly and pressures the opponent, potentially sacrificing card advantage for speed. Card advantage-focused play accumulates resources and answers threats efficiently, potentially sacrificing tempo for value. It's difficult to make a deck that wins via both."
+    },
+    {
+      "instruction": "A player spends 2 mana to bounce an opponent's 5-mana creature back to their hand. Did they gain or lose card advantage? Did they gain or lose tempo?",
+      "input": "",
+      "output": "They lost card advantage - they spent a card but the threat is still in opponent's hand, not permanently removed. However, they gained tempo - they spent 2 mana to make the opponent re-spend 5 mana, a 3-mana tempo swing in their favor."
+    },
+    {
+      "instruction": "What does it mean for a control deck to stabilize?",
+      "input": "",
+      "output": "Stabilizing means the control player has stopped the bleeding - they've answered the immediate threats, their life total is no longer dropping, and they can begin executing their own game plan. After stabilizing, control shifts from surviving to winning."
+    },
+    {
+      "instruction": "What is mana economy in trades?",
+      "input": "",
+      "output": "When your cheap card deals with their expensive card, you gain tempo advantage equal to the mana difference. A 2-mana removal spell killing a 5-mana creature nets you 3 mana of tempo - you spent less and can redeploy faster than they can."
+    },
+    {
+      "instruction": "What does it mean to trade up?",
+      "input": "",
+      "output": "Trading up means your cheaper card kills or removes their more expensive card, gaining mana advantage. A 1-mana 1/1 deathtouch trading with a 5-mana 5/5 is card-neutral (one-for-one) but a massive tempo swing - you're up 4 mana worth of resources."
+    },
+    {
+      "instruction": "When is it acceptable to trade down?",
+      "input": "",
+      "output": "Trading down (using expensive removal on cheap threats) is acceptable when survival matters more than efficiency. A 2-mana creature that must be killed or you lose the game is worth spending 4 mana on. Recognize when efficiency matters and when survival matters more."
+    },
+    {
+      "instruction": "What is the Fundamental Turn?",
+      "input": "",
+      "output": "The Fundamental Turn is the turn when a deck's strategy becomes dominant - when it 'wins' if uninterrupted. For aggro, it's the turn it can deal lethal damage. For control, it's the turn it stabilizes. For combo, it's the turn it assembles its winning combination. Your deck's fundamental turn must be competitive with the format's average."
+    },
+    {
+      "instruction": "What is the goal of an aggro deck?",
+      "input": "",
+      "output": "Aggro's goal is to kill the opponent as quickly as possible. It prioritizes tempo over card advantage, using efficient creatures, burn spells, and combat tricks. Aggro wins by overwhelming the opponent before they can stabilize, and loses when falling behind on board or when the opponent stabilizes with lifegain or sweepers."
+    },
+    {
+      "instruction": "What is the goal of a control deck?",
+      "input": "",
+      "output": "Control's goal is to survive the early game, then win through card advantage. It prioritizes card advantage over tempo, using removal, counterspells, card draw, and few but powerful win conditions. Control wins by answering all threats then deploying an unanswerable threat, and loses when overwhelmed before stabilizing or running out of answers."
+    },
+    {
+      "instruction": "What is the goal of a midrange deck?",
+      "input": "",
+      "output": "Midrange's goal is to play versatile threats and answers, adapting to the opponent. It balances tempo and card advantage, using efficient creatures with abilities and versatile removal. Midrange wins by out-valuing aggro and out-tempoing control, and loses when too slow against aggro or too fair against combo."
+    },
+    {
+      "instruction": "What is the goal of a combo deck?",
+      "input": "",
+      "output": "Combo's goal is to assemble a specific combination of cards that wins the game. It prioritizes speed to combo and protection for combo pieces, using combo pieces, tutors, card draw, and sometimes protection. Combo wins by executing before the opponent can disrupt it, and loses to disruption like discard and counterspells or being killed before assembling."
+    },
+    {
+      "instruction": "What are tutors and why do combo decks want them?",
+      "input": "",
+      "output": "Tutors are cards that search your library for specific cards, named after Demonic Tutor. Combo decks want them because combo requires assembling specific card combinations. Tutors increase consistency by letting you find exactly the pieces you need rather than hoping to draw them naturally."
+    },
+    {
+      "instruction": "How does an aggro deck approach the tradeoff between tempo and card advantage?",
+      "input": "",
+      "output": "Aggro prioritizes tempo over card advantage. Deploy threats quickly and win before the opponent stabilizes, even if it means running out of cards. The game plan is to deal 20 damage before card advantage matters."
+    },
+    {
+      "instruction": "How does a control deck approach the tradeoff between tempo and card advantage?",
+      "input": "",
+      "output": "Control prioritizes card advantage over tempo. Survive the early game, accumulate resources, then win through superior options. Control accepts falling behind on board early because it plans to catch up through efficient answers and card draw."
+    },
+    {
+      "instruction": "What does 'Who's the Beatdown?' mean?",
+      "input": "",
+      "output": "In any matchup, one player should be the beatdown (aggressor) and one should be the control (defender). Misidentifying your role often leads to losing. The beatdown's job is to kill the opponent faster than they can kill you. The control's job is to survive, establish card advantage, then win at leisure."
+    },
+    {
+      "instruction": "How do you determine which player should be the beatdown?",
+      "input": "",
+      "output": "Three factors determine who should be beatdown: 1) Damage capacity - more damage-oriented cards means beatdown role. 2) Removal quantity - more answers means control role. 3) Card advantage/permission - more counterspells and draw means control role."
+    },
+    {
+      "instruction": "What is inevitability and how does it affect role assignment?",
+      "input": "",
+      "output": "Inevitability is who wins if the game goes very long with no decisive action. The player with inevitability has an endgame advantage - perhaps an unbeatable threat, a combo, or simply better card quality. The player WITHOUT inevitability must be the beatdown - they need to win before the opponent's advantage takes over."
+    },
+    {
+      "instruction": "Two midrange decks face each other. One has more removal spells, the other has more aggressive creatures. Which should be the beatdown?",
+      "input": "",
+      "output": "The deck with more aggressive creatures should be the beatdown - it has more damage capacity. The deck with more removal should play the control role - it has more answers. Misassigning these roles (aggressive deck playing defensive, removal-heavy deck racing) leads to losses."
+    },
+    {
+      "instruction": "What happens if you misassign your role as beatdown vs control?",
+      "input": "",
+      "output": "If you're the beatdown but play defensively, you give the opponent time to establish their advantage. If you're the control but play aggressively, you walk into the opponent's game plan and waste resources. Misassignment means playing against your deck's strengths."
+    },
+    {
+      "instruction": "What does 'running out of gas' mean?",
+      "input": "",
+      "output": "Running out of gas means you've depleted your hand of useful cards and are now in topdeck mode - your entire game depends on whatever you draw next with no backup options. 'Gas' refers to threats, action cards, or resources that advance your game plan."
+    },
+    {
+      "instruction": "When should you trade creatures in combat?",
+      "input": "",
+      "output": "Usually attack if you can and usually block if you can. When attacking, the opponent might not block (free damage), or if they do block, the trade happens on your terms. When blocking, you make an even trade while saving life. Be willing to trade creatures - trying to avoid trades often leads to taking extra damage or letting the opponent leverage their creatures better."
+    },
+    {
+      "instruction": "When should you NOT trade creatures?",
+      "input": "",
+      "output": "Don't trade when: setting up for a big turn like Overrun effects, building critical mass for devotion or tribal synergies, or when the creature has a job outside combat. But achieve your goals quickly - avoiding trades for too long lets the opponent pressure you."
+    },
+    {
+      "instruction": "A player is at 17 life facing a 5/5 attacker. They have a 2/2 creature. Should they chump block?",
+      "input": "",
+      "output": "No, they should not chump block. Going from 17 to 12 life is not dangerous - they're still at a healthy total. Throwing away a creature to prevent non-lethal damage wastes a resource. Chump blocking is a last resort for when you'd die otherwise."
+    },
+    {
+      "instruction": "When should a player start chump blocking?",
+      "input": "",
+      "output": "Chump block when the damage would kill you or put you in immediate lethal range. Once you identify you'll have to chump eventually, do it while you can - before the opponent removes your option with removal spells. Don't chump at high life; must chump near lethal."
+    },
+    {
+      "instruction": "How should you think about life total in the early game vs late game?",
+      "input": "",
+      "output": "Early game, life matters less - taking 3 damage to save a creature is often correct. Late game, life matters more - your last points are precious. Think ahead: if the opponent has Lightning Bolt, avoid going to 3. If they have haste creatures, avoid going to 5-6."
+    },
+    {
+      "instruction": "What is a linear strategy?",
+      "input": "",
+      "output": "A linear strategy focuses entirely on one goal, with every card contributing to that plan. It's single-minded, not interested in interacting with the opponent, and features cards that are weak individually but powerful together. Linear strategies need to reach critical mass to function."
+    },
+    {
+      "instruction": "What is critical mass in synergy-based decks?",
+      "input": "",
+      "output": "Critical mass is the threshold at which a synergy-based strategy becomes powerful. A deck with few synergy pieces has weak payoffs, but once you have enough pieces, the synergies become devastating. Below critical mass, individual cards are weak; above it, they're exponentially more powerful."
+    },
+    {
+      "instruction": "What is the main weakness of linear strategies?",
+      "input": "",
+      "output": "Linear strategies are vulnerable to targeted disruption and sideboard hate. One hate card can invalidate the entire game plan because linear decks lack flexibility. If their synergy engine is disrupted, their individually weak cards can't compete."
+    },
+    {
+      "instruction": "What is sideboard hate?",
+      "input": "",
+      "output": "Sideboard hate refers to narrow but powerful cards designed to shut down specific strategies. Examples: graveyard hate against graveyard decks, artifact destruction against artifact decks. These cards are too narrow for the main deck but devastating against the right opponent."
+    },
+    {
+      "instruction": "How do you play against linear strategies?",
+      "input": "",
+      "output": "Prevent them from reaching critical mass. Disruption and removal are key. You often don't need to 'win' the interaction - just stop their plan long enough to execute yours. Target their key enablers or payoff cards."
+    },
+    {
+      "instruction": "What is permission in Magic strategy?",
+      "input": "",
+      "output": "Permission is a control strategy built around counterspells. You give the opponent 'permission' to resolve their spells (by not countering) or deny permission (by countering). Permission decks control what enters the battlefield rather than removing threats after they resolve."
+    },
+    {
+      "instruction": "How many lands should an aggressive deck run?",
+      "input": "",
+      "output": "Aggressive decks with low mana curves typically run 18-22 lands. They need enough land to cast their cheap spells but don't want to flood since their cards are low-cost. The baseline is 24 lands for an average deck, adjusted down for lower curves."
+    },
+    {
+      "instruction": "How many lands should a control deck run?",
+      "input": "",
+      "output": "Control decks with high mana curves typically run 25-27 lands. They need to hit land drops consistently to cast expensive spells and want to reach high mana counts. The baseline is 24 lands for an average deck, adjusted up for higher curves."
+    },
+    {
+      "instruction": "What is a combat trick?",
+      "input": "",
+      "output": "Combat tricks are instant-speed spells that modify creatures during combat, such as +3/+3 effects or granting abilities. They create surprise advantages in combat - your 2/2 suddenly beats their 3/3, or your creature gains first strike to survive."
+    },
+    {
+      "instruction": "What is a board sweeper?",
+      "input": "",
+      "output": "A board sweeper (also called wrath effect or mass removal) is a spell that destroys all creatures at once, like Wrath of God. Sweepers punish players who overcommit to the board by trading one card for multiple creatures."
+    },
+    {
+      "instruction": "How should you play around board sweepers?",
+      "input": "",
+      "output": "Against board sweepers, avoid overcommitting to the board. Deploy just enough threats to pressure the opponent, keeping reserves in hand. If they sweeper, you rebuild faster. This is value inversion - normally developing your board is good, but sweeper threat makes holding back correct."
+    },
+    {
+      "instruction": "What does deathtouch do mechanically?",
+      "input": "",
+      "output": "Deathtouch means any amount of damage this creature deals to another creature is enough to destroy it. This applies to all damage - combat, fight effects, and direct damage abilities. When blocked by multiple creatures, the deathtouch creature can assign just 1 damage to each, destroying them all."
+    },
+    {
+      "instruction": "How does deathtouch interact with first strike?",
+      "input": "",
+      "output": "Deathtouch and first strike combine powerfully. The first strike creature deals damage before regular combat damage. With deathtouch, that damage kills any creature. So a 1/1 with deathtouch and first strike kills any creature without first strike before taking damage back."
+    },
+    {
+      "instruction": "How does trample interact with deathtouch?",
+      "input": "",
+      "output": "Trample and deathtouch combine devastatingly. Since deathtouch means any damage is lethal, you only need to assign 1 damage to each blocker to kill it. The rest tramples through to the player. A 5/5 with deathtouch and trample blocked by a 10/10 assigns 1 damage (killing it) and deals 4 to the opponent."
+    },
+    {
+      "instruction": "How do you play against deathtouch creatures?",
+      "input": "",
+      "output": "Against deathtouch, try to kill the creature outside of combat with removal spells. You can also use indestructible creatures, or evade the deathtouch creature using flying or menace. Don't trade valuable creatures into deathtouch blockers unless necessary."
+    },
+    {
+      "instruction": "What makes double strike powerful?",
+      "input": "",
+      "output": "Double strike effectively doubles a creature's combat damage output - a 3/3 double strike deals 6 damage to a player. Pump spells are twice as effective (Giant Growth adds 6 damage, not 3). It combines with deathtouch (kill in first strike, deal regular damage), lifelink (gain life twice), and trample (first strike kills blockers, regular damage tramples)."
+    },
+    {
+      "instruction": "What is the inherent risk of auras?",
+      "input": "",
+      "output": "Auras carry inherent risk - if the enchanted permanent is removed, you lose both the aura and the permanent, a two-for-one against yourself. Mitigate this by enchanting hexproof creatures, getting immediate ETB value, or using cheap auras where tempo gained outweighs the risk."
+    },
+    {
+      "instruction": "How is equipment different from auras?",
+      "input": "",
+      "output": "Unlike auras, equipment survives when the creature dies - you can re-equip to another creature. This resilience makes equipment better in grindy games. The weakness is sorcery-speed equipping: you can't surprise opponents in combat, and they can remove the creature in response to equip."
+    },
+    {
+      "instruction": "What strategic advantage does first strike provide?",
+      "input": "",
+      "output": "First strike lets you kill opposing creatures before they deal damage back. A 3/3 first strike beats a 3/3 without it. This makes first strike creatures excellent at attacking into similar-sized blockers and combines well with deathtouch and pump spells."
+    },
+    {
+      "instruction": "What strategic advantage does flash provide?",
+      "input": "",
+      "output": "Flash provides information advantage - you see what the opponent does before committing. Cast creatures at end of opponent's turn to keep mana open for interaction, then untap with a threat ready to attack. Flash creatures also work as surprise blockers, ambushing attackers."
+    },
+    {
+      "instruction": "Why is flying valuable?",
+      "input": "",
+      "output": "Flying is the most common form of evasion. Flyers often win races because they deal damage while ground creatures stare at each other. Build decks with either enough flyers to race, or enough reach/removal to handle opposing flyers."
+    },
+    {
+      "instruction": "What makes haste valuable?",
+      "input": "",
+      "output": "Haste eliminates the summoning sickness turn where creatures are vulnerable but can't act. This provides surprise damage opponents couldn't plan for, and guarantees at least one attack before removal can be used during their turn. Haste creatures are excellent topdecks when racing."
+    },
+    {
+      "instruction": "How do you play against hexproof creatures?",
+      "input": "",
+      "output": "Hexproof shuts down targeted removal, so you need alternate answers: board sweepers (Wrath effects don't target), edict effects (opponent sacrifices, no targeting), -X/-X effects if they don't target, or simply racing. Don't hold targeted removal hoping to use it."
+    },
+    {
+      "instruction": "What can still affect indestructible creatures?",
+      "input": "",
+      "output": "Indestructible survives damage and destroy effects, but doesn't prevent: exile effects, sacrifice effects, -X/-X effects reducing toughness to 0, or return to hand effects. Save exile effects for indestructible threats."
+    },
+    {
+      "instruction": "Why is lifelink more powerful on larger creatures?",
+      "input": "",
+      "output": "Lifelink swings damage races by the life difference - a 3/3 lifelink changes life differential by 6 (you gain 3, they lose 3). Larger creatures scale this dramatically. A 6/6 lifelink swings by 12 points, often completely reversing a race."
+    },
+    {
+      "instruction": "How do you play against menace?",
+      "input": "",
+      "output": "Menace requires two blockers. Keep two expendable blockers ready, or use removal instead of blocking. Don't let them attack when you have only one blocker unless you're willing to take the damage."
+    },
+    {
+      "instruction": "What does protection prevent? Use the DEBT acronym.",
+      "input": "",
+      "output": "Protection prevents DEBT: Damage from sources with that quality, Enchanting/Equipping by sources with that quality, Blocking by creatures with that quality, and Targeting by sources with that quality. Protection from red stops red damage, red auras, blocks by red creatures, and targeting by red spells."
+    },
+    {
+      "instruction": "What is the strategic purpose of reach?",
+      "input": "",
+      "output": "Reach is defensive - it lets ground creatures block flyers. Green gets reach instead of flying. Include reach creatures if you lack flyers and expect flying threats. Keep reach creatures back specifically to block flyers rather than trading them in ground combat."
+    },
+    {
+      "instruction": "Why does trample make pump spells better?",
+      "input": "",
+      "output": "With trample, all extra power from pump spells tramples through to the player. A 4/4 trample blocked by a 2/2 deals 2 damage to the player. Add Giant Growth (+3/+3) and now a 7/4 trample blocked by a 2/2 deals 5 to the player - all the pump damage gets through."
+    },
+    {
+      "instruction": "What makes vigilance valuable for midrange?",
+      "input": "",
+      "output": "Vigilance lets you attack without defensive cost - you can still block next turn. There's no decision between attack or hold back - you do both. Vigilance creatures pressure opponents while holding back aggression, perfect for midrange strategies wanting board control."
+    },
+    {
+      "instruction": "How is ward different from hexproof?",
+      "input": "",
+      "output": "Ward is softer than hexproof - opponents can still target your permanent but must pay extra. Ward taxes their mana, potentially preventing double-spelling or forcing them to wait. Unlike hexproof, ward doesn't stop board sweepers or abilities that don't target."
+    },
+    {
+      "instruction": "What is firebending and how does it affect gameplay?",
+      "input": "",
+      "output": "Firebending generates red mana during combat when the creature attacks. This enables explosive multi-spell combat phases - attack, generate mana, spend it on combat tricks and burn spells before damage. Build with cheap instants to maximize the generated mana. Counter it with instant-speed removal before they can attack."
+    },
+    {
+      "instruction": "How does waterbending work strategically?",
+      "input": "",
+      "output": "Waterbending converts board presence (tapping creatures/artifacts) into payment for effects. It rewards going wide with tokens. Key applications: protect your board from sweepers by bouncing your own creatures, re-trigger ETB effects, or surprise opponents with effects they didn't think you could afford."
+    },
+    {
+      "instruction": "What is airbending used for?",
+      "input": "",
+      "output": "Airbending temporarily exiles spells or permanents, delaying them. It doesn't permanently answer threats but creates tempo advantage. Use it to buy crucial turns, re-trigger your own ETBs, save permanents from removal (exile in response, it returns after removal fizzles), or disrupt opponent sequencing."
+    },
+    {
+      "instruction": "Why is earthbending's return clause significant?",
+      "input": "",
+      "output": "Earthbend animates lands into creatures, but when they die they return to battlefield tapped as lands. This removes traditional land-animation risk - you don't lose mana permanently. This enables aggressive attacks with lands and sacrifice synergies using lands as repeatable fodder."
+    },
+    {
+      "instruction": "What is bargain and how do you build around it?",
+      "input": "",
+      "output": "Bargain lets you sacrifice an artifact, enchantment, or token when casting for a bonus effect. Build around it with disposable permanents: Food tokens, Treasure, creature tokens, or enchantments you've already gotten ETB value from. Bargain turns otherwise useless permanents into value."
+    },
+    {
+      "instruction": "What is the key rule about role tokens?",
+      "input": "",
+      "output": "A creature can only have one role from each player. Assigning a new role removes the old one. This lets you upgrade roles as the game progresses or remove bad roles by replacing them. Cursed role on opponent's creatures is removal-lite."
+    },
+    {
+      "instruction": "What is discover and how does deck building affect it?",
+      "input": "",
+      "output": "Discover exiles cards from library until finding a nonland with lower mana value, then casts it free or puts it in hand. Build around it by controlling what you can hit - if your discover card costs 4, include powerful 3-or-less cost spells. Minimize low-value cheap cards that could be discovered instead."
+    },
+    {
+      "instruction": "How does explore help your game plan?",
+      "input": "",
+      "output": "Explore smooths draws - find lands when you need them, grow your creature when you don't. If you reveal a nonland, you choose to keep it on top or put it in graveyard (fueling descended/delirium). Explore synergizes with +1/+1 counter themes and graveyard strategies."
+    },
+    {
+      "instruction": "What is the strategic purpose of disguise's ward 2?",
+      "input": "",
+      "output": "Disguise creatures have ward 2 while face-down, making them harder to kill before flipping. This protects your investment while you build mana for the flip cost. Opponents must pay extra to preemptively remove your mystery creature, often making it correct to let it flip first."
+    },
+    {
+      "instruction": "What is plot and how does it enable explosive turns?",
+      "input": "",
+      "output": "Plot lets you pay a cost now to exile a card, then cast it free later. This banks mana from turns with excess and sets up explosive future turns. Multiple plotted cards create devastating turns where you deploy many threats while keeping mana for interaction."
+    },
+    {
+      "instruction": "What is offspring and when is it worth paying for?",
+      "input": "",
+      "output": "Offspring creates a 1/1 token copy of the creature for an extra cost. The token copies abilities, making ETB effects particularly valuable - you get two triggers for one card. Prioritize offspring on creatures with strong ETB effects or valuable static abilities."
+    },
+    {
+      "instruction": "How do you enable delirium?",
+      "input": "",
+      "output": "Delirium requires four different card types in your graveyard. Build with varied card types and ways to fill graveyard. Some cards self-enable (artifact creatures count as two types). Prioritize milling or discarding card types you're missing."
+    },
+    {
+      "instruction": "How do rooms work and what triggers eerie?",
+      "input": "",
+      "output": "Rooms are split enchantments - cast one door initially, pay to unlock the second door later. This provides flexibility and late-game mana sinks. Unlocking the second door triggers eerie abilities, giving additional value beyond the door's effect."
+    },
+    {
+      "instruction": "What does survival reward and what breaks the synergy?",
+      "input": "",
+      "output": "Survival gives bonuses at beginning of second main phase if the creature is tapped. This rewards attacking - attack to trigger survival, then benefit. Vigilance notably anti-synergizes because the creature doesn't tap when attacking, so survival won't trigger."
+    },
+    {
+      "instruction": "Why is cycling valuable for deck consistency?",
+      "input": "",
+      "output": "Cycling turns dead draws into new cards. A situational card that's bad right now can be cycled for something else. This dramatically increases deck consistency - your cycling cards are never truly dead. Count cycling cards as partial cards of their type when deck building."
+    },
+    {
+      "instruction": "What makes kicker cards flexible?",
+      "input": "",
+      "output": "Kicker cards are playable at base cost early or kicked for bonus effects late. This flexibility makes them excellent - never dead early, powerful late. Evaluate at both costs: is the base rate acceptable? Is the kicked version worth the extra mana?"
+    },
+    {
+      "instruction": "How does flashback provide card advantage?",
+      "input": "",
+      "output": "Flashback gives spells a second use from the graveyard - one card, two uses. This is built-in card advantage. Flashback costs are typically higher than original, but filling your graveyard becomes valuable when you have flashback cards to cast."
+    },
+    {
+      "instruction": "How do fetchlands interact with landfall?",
+      "input": "",
+      "output": "Fetchlands trigger landfall twice - once when you play the fetchland, and again when you sacrifice it to get another land. Effects that put extra lands into play multiply triggers further. This makes fetchlands premium in landfall decks."
+    },
+    {
+      "instruction": "How does convoke reward going wide?",
+      "input": "",
+      "output": "Convoke lets you tap creatures to help pay mana costs - each tapped creature pays 1 generic or its color. This rewards going wide with tokens and cheap creatures. A board of five creatures means 5 mana available for convoking. Creatures can convoke the turn they enter since tapping doesn't require haste."
+    },
+    {
+      "instruction": "How do you build around prowess?",
+      "input": "",
+      "output": "Prowess rewards casting noncreature spells - each one pumps prowess creatures. Build with cheap instants and sorceries, especially cantrips that draw cards. Chain multiple spells on combat turns for massive damage. Combat tricks are especially good - pump from the trick plus prowess trigger."
+    },
+    {
+      "instruction": "How do you play against prowess?",
+      "input": "",
+      "output": "Remove prowess creatures before they can attack. Track how many spells the opponent could cast to gauge potential damage. Don't assume a small prowess creature stays small - a 1/2 prowess can easily become a 4/5 or larger with a few cheap spells."
+    },
+    {
+      "instruction": "What is toxic and how does it change the game?",
+      "input": "",
+      "output": "Toxic deals poison counters when the creature damages a player, in addition to regular damage. Ten poison counters kills regardless of life total. This splits defensive priorities between life and poison. Life gain doesn't help against poison - you must block or remove toxic creatures."
+    },
+    {
+      "instruction": "How does affinity reward building around a permanent type?",
+      "input": "",
+      "output": "Affinity reduces costs by 1 for each permanent of the specified type you control. Affinity for artifacts with many artifacts can cast expensive spells nearly free. Establish the permanent type before casting affinity spells for maximum discount. Removing their permanents increases their costs."
+    },
+    {
+      "instruction": "What role does the sideboard play in Magic strategy?",
+      "input": "",
+      "output": "The sideboard is 15 cards kept separate from your main deck. Between games in a match, you swap cards between main deck and sideboard. Sideboards contain specialized answers for specific matchups - cards too narrow for the main deck but powerful against certain strategies."
+    },
+    {
+      "instruction": "How should role assignment inform sideboarding?",
+      "input": "",
+      "output": "Determine your role (beatdown or control) before sideboarding. Remove cards that don't serve your assigned role; add cards that reinforce it. If you're the beatdown, cut slow cards for more pressure. If you're control, cut aggressive cards for more answers."
+    },
+    {
+      "instruction": "What is the danger of getting too fancy with plays?",
+      "input": "",
+      "output": "Players often lose games pursuing impressive plays instead of winning plays. Before improving your line with something flashy, verify the original plan still works, consider what opponent can do to disrupt you, and evaluate if the alternative actually offers better win percentage. If you can win the game, win the game."
+    }
+  ]
+}
