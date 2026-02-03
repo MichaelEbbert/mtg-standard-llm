@@ -1,0 +1,28 @@
+# Fine-tuning dependencies for MTG-STD-LLM
+# Install with: pip install -r requirements.txt
+
+# Core ML framework - CUDA 12.1 version for RTX 3060
+torch>=2.1.0
+torchvision
+torchaudio
+
+# Hugging Face ecosystem
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.25.0
+peft>=0.7.0
+
+# Quantization for QLoRA (4-bit training)
+bitsandbytes>=0.41.0
+
+# Training utilities
+trl>=0.7.0
+scipy
+
+# Evaluation
+evaluate
+
+# Utilities
+tqdm
+sentencepiece
+protobuf
