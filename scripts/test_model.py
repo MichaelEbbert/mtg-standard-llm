@@ -3,7 +3,7 @@ Test the fine-tuned MTG model vs base Mistral.
 
 Usage:
     conda activate mtg-llm
-    cd D:\claude_projects\mtg-std-llm
+    cd C:\claude_projects\mtg-std-llm
     python scripts/test_model.py
 """
 

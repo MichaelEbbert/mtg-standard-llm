@@ -3,7 +3,7 @@ Run the 20-question evaluation against the fine-tuned model.
 
 Usage:
     conda activate mtg-llm
-    cd D:\claude_projects\mtg-std-llm
+    cd C:\claude_projects\mtg-std-llm
     python scripts/run_eval.py
 """
 

@@ -3,7 +3,7 @@ Fine-tune Mistral 7B on MTG strategy reasoning using QLoRA.
 
 Usage:
     conda activate mtg-llm
-    cd D:\claude_projects\mtg-std-llm
+    cd C:\claude_projects\mtg-std-llm
     python scripts/finetune.py
 """
 
